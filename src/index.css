@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  --color-bg-primary: #F5F5F7;
+  --color-bg-card: #FFFFFF;
+  
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B7280;
+  --color-text-tertiary: #9CA3AF;
+  
+  --color-accent-blue: #6368FB;
+  --color-accent-pink: #FF83AD;
+  --color-accent-coral: #FDAB8B;
+  --color-accent-peach: #FFD8AA;
+  
+  --color-success: #4ADE80;
+  --color-warning: #FBA907;
+  --color-error: #EF4444;
+
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-primary text-text-primary font-sans antialiased;
+  }
+
+  h1 { @apply text-[48px] font-bold tracking-[-0.02em] leading-tight; }
+  h2 { @apply text-[32px] font-bold tracking-[-0.01em] leading-tight; }
+  h3 { @apply text-[24px] font-semibold leading-tight; }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/85 backdrop-blur-[20px] border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.08)];
+  }
+
+  .btn-gradient {
+    background: linear-gradient(135deg, #6368FB 0%, #FF83AD 33%, #FDAB8B 66%, #FFD8AA 100%);
+    @apply text-white font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98];
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #6368FB 0%, #FF83AD 33%, #FDAB8B 66%, #FFD8AA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-text-tertiary/30 rounded-full hover:bg-text-tertiary/50;
+}
